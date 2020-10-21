@@ -40,7 +40,7 @@
     "test:ios": "cross-env UNI_PLATFORM=app-plus UNI_OS_NAME=ios jest -i",
     "test:mp-baidu": "cross-env UNI_PLATFORM=mp-baidu jest -i",
     "test:mp-weixin": "cross-env UNI_PLATFORM=mp-weixin jest -i",
-    "upload":"node ci/index.js"
+    "upload": "node ci/index.js"
   },
   "dependencies": {
     "@dcloudio/uni-app-plus": "^2.0.0-29320201014001",
@@ -81,6 +81,7 @@
     "jest": "^25.4.0",
     "mini-types": "*",
     "miniprogram-api-typings": "*",
+    "miniprogram-ci": "^1.0.83",
     "postcss-comment": "^2.0.0",
     "vue-template-compiler": "^2.6.11"
   },
