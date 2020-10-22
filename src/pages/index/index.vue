@@ -2,7 +2,10 @@
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
 		<view>
-			<text class="title">{{title}}</text>
+			<text class="title">this is a miniprogram </text>
+		</view>
+		<view>
+			<text class="title">hello world</text>
 		</view>
 	</view>
 </template>
