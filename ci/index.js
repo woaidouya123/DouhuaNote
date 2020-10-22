@@ -1,11 +1,13 @@
 const ci = require('miniprogram-ci')
+const path = require('path')
 ;(async () => {
   const BUILD_NUMBER = process.env.BUILD_NUMBER;
   const CHANGE_TITLE = process.env.CHANGE_TITLE;
+  console.log(BUILD_NUMBER,CHANGE_TITLE,path.join(__dirname,'dist/dev/mp-weixin'))
   const project = new ci.Project({
     appid: 'wxac429285b3099f2e',
     type: 'miniProgram',
-    projectPath: 'dist/dev/mp-weixin',
+    projectPath: path.join(__dirname,'dist/dev/mp-weixin'),
     privateKeyPath: '/root/wechat_key/private.wxac429285b3099f2e.key',
     ignores: ['node_modules/**/*'],
   })
