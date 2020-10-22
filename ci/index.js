@@ -1,5 +1,7 @@
 const ci = require('miniprogram-ci')
 ;(async () => {
+  const BUILD_NUMBER = process.env.BUILD_NUMBER;
+  const CHANGE_TITLE = process.env.CHANGE_TITLE;
   const project = new ci.Project({
     appid: 'wxac429285b3099f2e',
     type: 'miniProgram',
