@@ -2,26 +2,26 @@ const ci = require('miniprogram-ci')
 const path = require('path')
 ;(async () => {
   const BUILD_NUMBER = process.env.BUILD_NUMBER;
-  const GIT_COMMITTER_NAME = process.env.GIT_COMMITTER_NAME;
-  console.log(BUILD_NUMBER,GIT_COMMITTER_NAME,path.join(__dirname,'dist/build/mp-weixin'))
+  const GIT_COMMIT = process.env.GIT_COMMIT;
+  console.log(BUILD_NUMBER,GIT_COMMIT,path.join(__dirname,'dist/build/mp-weixin'))
   const project = new ci.Project({
     appid: 'wxac429285b3099f2e',
     type: 'miniProgram',
-    projectPath: path.join(__dirname,'dist/build/mp-weixin'),
+    projectPath: 'dist/build/mp-weixin',
     privateKeyPath: '/root/wechat_key/private.wxac429285b3099f2e.key',
     ignores: ['node_modules/**/*'],
   })
   const uploadResult = await ci.upload({
     project,
     version: `1.0.${BUILD_NUMBER}`,
-    desc: `${GIT_COMMITTER_NAME}`,
+    desc: `${GIT_COMMIT}`,
     onProgressUpdate: console.log,
   })
   console.log(uploadResult)
   const previewResult = await ci.preview({
     project,
     version: `1.0.${BUILD_NUMBER}`,
-    desc: `${GIT_COMMITTER_NAME}`,
+    desc: `${GIT_COMMIT}`,
     qrcodeFormat: 'image',
     qrcodeOutputDest: 'ci/destination.jpg',
     onProgressUpdate: console.log,
