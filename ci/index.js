@@ -1,9 +1,7 @@
 const ci = require('miniprogram-ci')
-const path = require('path')
 ;(async () => {
   const BUILD_NUMBER = process.env.BUILD_NUMBER;
-  const GIT_COMMIT = process.env.GIT_COMMIT;
-  console.log(BUILD_NUMBER,GIT_COMMIT,path.join(__dirname,'dist/build/mp-weixin'))
+  const SCM_CHANGELOG = process.env.SCM_CHANGELOG;
   const project = new ci.Project({
     appid: 'wxac429285b3099f2e',
     type: 'miniProgram',
@@ -14,14 +12,14 @@ const path = require('path')
   const uploadResult = await ci.upload({
     project,
     version: `1.0.${BUILD_NUMBER}`,
-    desc: `${GIT_COMMIT}`,
+    desc: `${SCM_CHANGELOG}`,
     onProgressUpdate: console.log,
   })
   console.log(uploadResult)
   const previewResult = await ci.preview({
     project,
     version: `1.0.${BUILD_NUMBER}`,
-    desc: `${GIT_COMMIT}`,
+    desc: `${SCM_CHANGELOG}`,
     qrcodeFormat: 'image',
     qrcodeOutputDest: 'ci/destination.jpg',
     onProgressUpdate: console.log,
